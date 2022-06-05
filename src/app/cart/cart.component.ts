@@ -7,7 +7,9 @@ import { CartService } from '../cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css'],
 })
+
 export class CartComponent {
+
   items = this.cartService.getItems();
 
   checkoutForm = this.formBuilder.group({
@@ -21,9 +23,10 @@ export class CartComponent {
   ) {}
 
   // Process checkout data
-  onSubmit(): void {
-    this.items = this.cartService.clearCart(); // clear cart
-    console.warn('Your order has been submitted', this.checkoutForm.value);
+  onSubmit(): void {    
+    this.items = this.cartService.clearCart(); // clear cart    
+    // console.warn('Your order has been submitted', this.checkoutForm.value);
+    window.alert('Your order has been submitted'); 
     this.checkoutForm.reset(); // reset form
   }
 }
